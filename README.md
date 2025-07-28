@@ -37,19 +37,6 @@ Aplikasi ini dibangun dengan mengutamakan kualitas pengalaman pengguna, tampilan
 └── README.md
 ```
 
-## Cara Menjalankan
-
-1. **Clone repositori ini terlebih dahulu:**
-   ```bash
-   git clone https://github.com/Bernardus19/Uas-PPPL.git
-   ```
-2. **Masuk ke dalam folder project:**
-   ```bash
-   cd Uas-PPPL
-   ```
-3. **Buka file `index.html` menggunakan browser pilihan Anda.**
-4. **Untuk pengalaman pengembangan yang lebih baik, disarankan menggunakan fitur Live Server pada Visual Studio Code atau editor serupa.**
-
 ## Penjelasan Singkat Kode
 
 - **HTML:** Menyusun struktur halaman, membagi bagian-bagian seperti header, hero section, fitur utama, testimonial, FAQ, dan footer.
