@@ -5,11 +5,12 @@
 document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href.startsWith('#')) {
+        if (href && href.startsWith('#')) {
             e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
             document.querySelectorAll('nav ul li a').forEach(item => {
                 item.classList.remove('active');
             });
@@ -23,7 +24,7 @@ const typedTextSpan = document.getElementById("typed-text");
 const textArray = ["Pesanan Anda", "Hidangan Favorit Anda", "Kebutuhan Katering Anda", "Semua dalam Genggaman"];
 const typingDelay = 100;
 const erasingDelay = 50;
-const newTextDelay = 2000; // Delay before starting to type new text
+const newTextDelay = 2000; 
 let textArrayIndex = 0;
 let charIndex = 0;
 
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 3. Counter Animation (statistik)
 const counters = document.querySelectorAll('.counter');
-const speed = 200; // The lower the speed, the faster the count
+const speed = 200; 
 
 const animateCount = (counter) => {
     const target = +counter.dataset.target;
@@ -69,7 +70,7 @@ const animateCount = (counter) => {
     const updateCount = () => {
         if (count < target) {
             count += increment;
-            counter.innerText = Math.ceil(count).toLocaleString('id-ID'); // Format number with thousands separator
+            counter.innerText = Math.ceil(count).toLocaleString('id-ID'); 
             setTimeout(updateCount, 1);
         } else {
             counter.innerText = target.toLocaleString('id-ID');
@@ -88,7 +89,7 @@ const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             animateCount(entry.target);
-            observer.unobserve(entry.target); // Stop observing once animated
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
@@ -117,19 +118,19 @@ const nextButton = document.getElementById('next-testimonial');
 
 prevButton.addEventListener('click', () => {
     testimonialCarousel.scrollBy({
-        left: -320, // Lebar item + gap
+        left: -320, 
         behavior: 'smooth'
     });
 });
 
 nextButton.addEventListener('click', () => {
     testimonialCarousel.scrollBy({
-        left: 320, // Lebar item + gap
+        left: 320, 
         behavior: 'smooth'
     });
 });
 
-// Optional: Auto-scroll
+
 let autoScrollInterval;
 const startAutoScroll = () => {
     autoScrollInterval = setInterval(() => {
@@ -144,17 +145,15 @@ const startAutoScroll = () => {
                 behavior: 'smooth'
             });
         }
-    }, 5000); // Ganti gambar setiap 5 detik
+    }, 5000); 
 };
 
 const stopAutoScroll = () => {
     clearInterval(autoScrollInterval);
 };
 
-// Start auto-scroll on page load
 startAutoScroll();
 
-// Pause auto-scroll on user interaction (hover)
 testimonialCarousel.addEventListener('mouseenter', stopAutoScroll);
 testimonialCarousel.addEventListener('mouseleave', startAutoScroll);
 
@@ -174,16 +173,16 @@ filterButtons.forEach(button => {
     button.addEventListener('click', () => {
         const category = button.dataset.category;
 
-        // Remove active class from all buttons
+        
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to the clicked button
+        
         button.classList.add('active');
 
         serviceCards.forEach(card => {
             if (category === 'all' || card.dataset.category === category) {
-                card.style.display = 'block'; // Show card
+                card.style.display = 'block'; 
             } else {
-                card.style.display = 'none'; // Hide card
+                card.style.display = 'none';
             }
         });
     });
@@ -201,7 +200,6 @@ document.getElementById('calculate-price').addEventListener('click', () => {
         return;
     }
 
-    // Basic calculation logic (you can customize this)
     const baseCost = 10000; // Rp 10.000
     const costPerKm = 3000; // Rp 3.000 per KM
     const costPerKg = 1000; // Rp 1.000 per KG
@@ -220,18 +218,17 @@ const subjectInput = document.getElementById('subject');
 const messageInput = document.getElementById('message');
 const messageCharCount = document.getElementById('message-char-count');
 
-// Function to validate email format
 const isValidEmail = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 };
 
 contactForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
 
     let isValid = true;
 
-    // Name validation
+
     if (nameInput.value.trim() === '') {
         document.getElementById('name-error').textContent = 'Nama tidak boleh kosong.';
         isValid = false;
@@ -239,7 +236,6 @@ contactForm.addEventListener('submit', (e) => {
         document.getElementById('name-error').textContent = '';
     }
 
-    // Email validation
     if (emailInput.value.trim() === '') {
         document.getElementById('email-error').textContent = 'Email tidak boleh kosong.';
         isValid = false;
@@ -250,7 +246,6 @@ contactForm.addEventListener('submit', (e) => {
         document.getElementById('email-error').textContent = '';
     }
 
-    // Subject validation
     if (subjectInput.value.trim() === '') {
         document.getElementById('subject-error').textContent = 'Subjek tidak boleh kosong.';
         isValid = false;
@@ -258,7 +253,6 @@ contactForm.addEventListener('submit', (e) => {
         document.getElementById('subject-error').textContent = '';
     }
 
-    // Message validation
     if (messageInput.value.trim() === '') {
         document.getElementById('message-error').textContent = 'Pesan tidak boleh kosong.';
         isValid = false;
@@ -277,7 +271,6 @@ contactForm.addEventListener('submit', (e) => {
     }
 });
 
-// Message character counter
 messageInput.addEventListener('input', () => {
     const currentLength = messageInput.value.length;
     const maxLength = messageInput.maxLength;
@@ -285,7 +278,7 @@ messageInput.addEventListener('input', () => {
 });
 
 
-// 10. Live Chat Simulation
+// 10. Chatbot Functionality
 const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
 const sendChatButton = document.getElementById('send-chat');
@@ -304,17 +297,14 @@ function sendMessage() {
     const userMessageText = chatInput.value.trim();
     if (userMessageText === '') return;
 
-    // Add user message
     const userMessageDiv = document.createElement('div');
     userMessageDiv.classList.add('chat-message', 'user');
     userMessageDiv.textContent = userMessageText;
     chatMessages.appendChild(userMessageDiv);
 
-    // Scroll to bottom
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    // Simulate bot response
-    chatInput.value = ''; // Clear input
+    chatInput.value = ''; 
     setTimeout(() => {
         const botMessageDiv = document.createElement('div');
         botMessageDiv.classList.add('chat-message', 'bot');
@@ -342,7 +332,6 @@ accordionHeaders.forEach(header => {
         const accordionItem = header.parentElement;
         const accordionContent = header.nextElementSibling; 
 
-        // Close all other open accordions
         document.querySelectorAll('.accordion-item').forEach(item => {
             if (item !== accordionItem && item.classList.contains('active')) {
                 item.classList.remove('active');
@@ -351,7 +340,6 @@ accordionHeaders.forEach(header => {
             }
         });
 
-        // Toggle current accordion
         accordionItem.classList.toggle('active');
         header.classList.toggle('active'); 
 
@@ -381,7 +369,7 @@ document.getElementById('faq-search-input').addEventListener('input', (e) => {
 });
 
 
-// 13. Project Details Modal 
+// 13. Project Details Modal
 const projectModal = document.getElementById('projectModal');
 const closeProjectModal = projectModal.querySelector('.close-button');
 const projectModalTitle = document.getElementById('project-modal-title');
@@ -390,7 +378,6 @@ const projectModalGallery = document.getElementById('project-modal-gallery');
 const projectModalTestimonialText = document.getElementById('project-modal-testimonial-text');
 const projectModalTestimonialAuthor = document.getElementById('project-modal-testimonial-author');
 
-// Sample project data 
 const projectsData = {
     1: {
         title: "Pengembangan Aplikasi Mobile QuickBite",
@@ -452,7 +439,6 @@ document.querySelectorAll('.view-details-btn').forEach(button => {
             projectModalTitle.textContent = project.title;
             projectModalDescription.textContent = project.description;
 
-            // Clear previous gallery images
             projectModalGallery.innerHTML = '';
             project.images.forEach(imgSrc => {
                 const img = document.createElement('img');
@@ -461,7 +447,6 @@ document.querySelectorAll('.view-details-btn').forEach(button => {
                 projectModalGallery.appendChild(img);
             });
 
-            // Set testimonial
             projectModalTestimonialText.textContent = project.testimonial.text;
             projectModalTestimonialAuthor.textContent = project.testimonial.author;
 
