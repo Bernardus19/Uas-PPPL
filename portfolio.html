@@ -3,74 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - QuickBite</title>
+    <title>Layanan - Bitesybite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <a href="#" class="logo">QuickBite</a>
+        <a href="#" class="logo">Bitesybite</a>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="about.html">Tentang Kami</a></li>
-                <li><a href="services.html">Layanan</a></li>
-                <li><a href="portfolio.html" class="active">Portofolio</a></li>
+                <li><a href="services.html" class="active">Layanan</a></li>
+                <li><a href="portfolio.html">Portofolio</a></li>
                 <li><a href="contact.html">Kontak</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="portfolio" class="portfolio-showcase section">
+    <section id="services" class="services-section">
         <div class="container">
-            <h2>Proyek Terbaru Kami</h2>
-            <div class="portfolio-grid">
-                <div class="project-item">
-                    <img src="QB2.png" alt="Project 1">
-                    <h3>Pengembangan Aplikasi Mobile QuickBite</h3>
-                    <p>Meningkatkan pengalaman pengguna dengan aplikasi yang lebih intuitif dan cepat.</p>
-                    <button class="view-details-btn" data-project-id="1">Lihat Detail</button>
+            <h2>Layanan Kami</h2>
+            <div class="services-catalog section">
+                <h2>Jelajahi Layanan Kami</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">Semua</button>
+                    <button class="filter-btn" data-category="fast-delivery">Antar Cepat</button>
+                    <button class="filter-btn" data-category="premium">Premium</button>
+                    <button class="filter-btn" data-category="catering">Katering</button>
                 </div>
-                <div class="project-item">
-                    <img src="AI1.png" alt="Project 2">
-                    <h3>Integrasi AI untuk Rekomendasi Makanan</h3>
-                    <p>Meningkatkan personalisasi rekomendasi makanan berdasarkan preferensi pengguna.</p>
-                    <button class="view-details-btn" data-project-id="2">Lihat Detail</button>
+                <div class="service-cards-grid">
+                    <div class="service-card-item" data-category="fast-delivery">
+                        <h3>Antar Instant</h3>
+                        <p>Pengiriman makanan tercepat dalam hitungan menit untuk area terdekat.</p>
+                        <span class="price">Rp 15.000</span>
+                    </div>
+                    <div class="service-card-item" data-category="premium">
+                        <h3>Antar Premium</h3>
+                        <p>Layanan prioritas dengan pengemudi terbaik dan pengemasan ekstra aman.</p>
+                        <span class="price">Rp 25.000</span>
+                    </div>
+                    <div class="service-card-item" data-category="catering">
+                        <h3>bitesybite Katering</h3>
+                        <p>Solusi katering untuk acara besar atau kantor, pengantaran terjadwal.</p>
+                        <span class="price">Mulai Rp 500.000</span>
+                    </div>
+                     <div class="service-card-item" data-category="fast-delivery">
+                        <h3>Antar Hemat</h3>
+                        <p>Opsi pengiriman dengan biaya lebih rendah, cocok untuk pesanan tidak terburu-buru.</p>
+                        <span class="price">Rp 8.000</span>
+                    </div>
+                    <div class="service-card-item" data-category="premium">
+                        <h3>Antar Spesial</h3>
+                        <p>Kurir khusus untuk pengantaran barang atau makanan yang memerlukan penanganan ekstra.</p>
+                        <span class="price">Rp 35.000</span>
+                    </div>
+                    <div class="service-card-item" data-category="catering">
+                        <h3>Bitesybite Bisnis</h3>
+                        <p>Paket khusus untuk kebutuhan bisnis dan korporat, faktur bulanan.</p>
+                        <span class="price">Hubungi Kami</span>
+                    </div>
                 </div>
-                <div class="project-item">
-                    <img src="AI2.png" alt="Project 3">
-                    <h3>Ekspansi ke 10 Kota Baru</h3>
-                    <p>Meluncurkan QuickBite di kota-kota besar baru, memperluas jangkauan layanan.</p>
-                    <button class="view-details-btn" data-project-id="3">Lihat Detail</button>
+            </div>
+
+            <div class="price-calculator-section section">
+                <h2>Estimasi Biaya Pengiriman</h2>
+                <div class="calculator-form">
+                    <label for="distance">Jarak (KM):</label>
+                    <input type="number" id="distance" min="1" value="1" placeholder="Masukkan jarak dalam KM">
+
+                    <label for="weight">Berat (KG):</label>
+                    <input type="number" id="weight" min="0.1" step="0.1" value="1" placeholder="Masukkan berat dalam KG">
+
+                    <button id="calculate-price">Hitung Biaya</button>
+                    <p>Estimasi Biaya: <span id="estimated-cost">Rp 0</span></p>
                 </div>
-                <div class="project-item">
-                    <img src="AI3.png" alt="Project 4">
-                    <h3>Sistem Logistik Cerdas</h3>
-                    <p>Optimasi rute pengiriman menggunakan algoritma canggih untuk efisiensi maksimal.</p>
-                    <button class="view-details-btn" data-project-id="4">Lihat Detail</button>
-                </div>
+            </div>
+
+            <div class="comparison-table-section section">
+                <h2>Perbandingan Paket Layanan</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fitur</th>
+                            <th>Basic</th>
+                            <th>Standard</th>
+                            <th>Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kecepatan Pengiriman</td>
+                            <td>Normal</td>
+                            <td>Cepat</td>
+                            <td>Instan</td>
+                        </tr>
+                        <tr>
+                            <td>Dukungan Pelanggan</td>
+                            <td>Email</td>
+                            <td>Chat & Email</td>
+                            <td>24/7 Prioritas</td>
+                        </tr>
+                        <tr>
+                            <td>Promo Eksklusif</td>
+                            <td>Tidak</td>
+                            <td>Ya</td>
+                            <td>Ya, Lebih Banyak</td>
+                        </tr>
+                        <tr>
+                            <td>Prioritas Antrean</td>
+                            <td>Tidak</td>
+                            <td>Ya</td>
+                            <td>Ya</td>
+                        </tr>
+                        <tr>
+                            <td>Biaya Per Pesanan</td>
+                            <td>Standar</td>
+                            <td>Diskon 10%</td>
+                            <td>Diskon 20%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="customize-package-form-section section">
+                <h2>Kustomisasi Paket Anda</h2>
+                <form class="customization-form" id="customization-form">
+                    <label for="package-type">Jenis Layanan:</label>
+                    <select id="package-type" name="package_type">
+                        <option value="delivery">Pengiriman Reguler</option>
+                        <option value="catering">Katering</option>
+                        <option value="business">Kebutuhan Bisnis</option>
+                    </select>
+
+                    <label for="food-preferences">Preferensi Makanan (jika katering):</label>
+                    <textarea id="food-preferences" name="food_preferences" rows="4" placeholder="Contoh: Vegetarian, Halal, Bebas Gluten, dll."></textarea>
+
+                    <label>Fitur Tambahan:</label>
+                    <div>
+                        <input type="checkbox" id="priority-support" name="additional_features[]" value="priority-support">
+                        <label for="priority-support">Dukungan Prioritas</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="eco-friendly-delivery" name="additional_features[]" value="eco-friendly-delivery">
+                        <label for="eco-friendly-delivery">Pengiriman Ramah Lingkungan</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dedicated-account" name="additional_features[]" value="dedicated-account">
+                        <label for="dedicated-account">Manajer Akun Khusus</label>
+                    </div>
+
+                    <label for="notes">Catatan Tambahan:</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Tuliskan kebutuhan atau pertanyaan spesifik Anda di sini."></textarea>
+
+                    <button type="submit">Kirim Permintaan Kustomisasi</button>
+                </form>
             </div>
         </div>
     </section>
-
-    <div id="projectModal" class="modal">
-        <span class="close-button">&times;</span>
-        <div class="modal-content-details">
-            <h3 id="project-modal-title"></h3>
-            <p id="project-modal-description"></p>
-            <div class="modal-gallery" id="project-modal-gallery">
-            </div>
-            <div id="project-modal-testimonials">
-                <h4>Ulasan Proyek:</h4>
-                <p id="project-modal-testimonial-text"></p>
-                <p id="project-modal-testimonial-author"></p>
-            </div>
-        </div>
-    </div>
     <footer>
         <div class="container">
-            <p>&copy; 2025 QuickBite. Semua Hak Dilindungi.</p>
+            <p>&copy; 2025 Bitesybite. Semua Hak Dilindungi.</p>
         </div>
     </footer>
     <script src="script.js"></script>
