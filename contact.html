@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - QuickBite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">QuickBite</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="services.html">Layanan</a></li>
+                <li><a href="portfolio.html">Portofolio</a></li>
+                <li><a href="contact.html" class="active">Kontak</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <h3>Kirim Pesan kepada Kami</h3>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap:</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek:</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <span class="error-message" id="subject-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan:</label>
+                            <textarea id="message" name="message" rows="6" maxlength="500" required></textarea>
+                            <span class="char-counter" id="message-char-count">0/500 karakter</span>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+                        <button type="submit">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="contact-info-map-container">
+                    <h3>Kantor Kami</h3>
+                    <div id="map" class="map-placeholder">
+                        <iframe src="https://www.google.com/maps" alt="Map Placeholder" style="width:100%; height:350px; object-fit:cover;"></iframe>
+                    </div>
+                    <div class="office-locations">
+                        <h3>Lokasi Cabang:</h3>
+                        <div class="location-marker-item" data-lat="-7.271165" data-lng="112.748118">
+                            <h4>Kantor Pusat Surabaya</h4>
+                            <p>Jl. Sakit Hati No. 123, Surabaya, Jawa Timur</p>
+                            <p>+62 812-2223-3310</p>
+                        </div>
+                        <div class="location-marker-item" data-lat="-6.208763" data-lng="106.845599">
+                            <h4>Kantor Cabang Jakarta</h4>
+                            <p>Jl. Kenangan Lalu No. 45, Jakarta Pusat, DKI Jakarta</p>
+                            <p>+62 812-1113-3342</p>
+                        </div>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <div class="live-chat-box">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="chat-message bot">Halo! Ada yang bisa kami bantu?</div>
+                        </div>
+                        <div style="display: flex;">
+                            <input type="text" id="chat-input" placeholder="Ketik pesan Anda...">
+                            <button id="send-chat">Kirim</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QuickBite. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

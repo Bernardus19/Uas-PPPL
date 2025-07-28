@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - QuickBite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">QuickBite</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="services.html">Layanan</a></li>
+                <li><a href="portfolio.html" class="active">Portofolio</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="portfolio" class="portfolio-showcase section">
+        <div class="container">
+            <h2>Proyek Terbaru Kami</h2>
+            <div class="portfolio-grid">
+                <div class="project-item">
+                    <img src="QB2.png" alt="Project 1">
+                    <h3>Pengembangan Aplikasi Mobile QuickBite</h3>
+                    <p>Meningkatkan pengalaman pengguna dengan aplikasi yang lebih intuitif dan cepat.</p>
+                    <button class="view-details-btn" data-project-id="1">Lihat Detail</button>
+                </div>
+                <div class="project-item">
+                    <img src="AI1.png" alt="Project 2">
+                    <h3>Integrasi AI untuk Rekomendasi Makanan</h3>
+                    <p>Meningkatkan personalisasi rekomendasi makanan berdasarkan preferensi pengguna.</p>
+                    <button class="view-details-btn" data-project-id="2">Lihat Detail</button>
+                </div>
+                <div class="project-item">
+                    <img src="AI2.png" alt="Project 3">
+                    <h3>Ekspansi ke 10 Kota Baru</h3>
+                    <p>Meluncurkan QuickBite di kota-kota besar baru, memperluas jangkauan layanan.</p>
+                    <button class="view-details-btn" data-project-id="3">Lihat Detail</button>
+                </div>
+                <div class="project-item">
+                    <img src="AI3.png" alt="Project 4">
+                    <h3>Sistem Logistik Cerdas</h3>
+                    <p>Optimasi rute pengiriman menggunakan algoritma canggih untuk efisiensi maksimal.</p>
+                    <button class="view-details-btn" data-project-id="4">Lihat Detail</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal">
+        <span class="close-button">&times;</span>
+        <div class="modal-content-details">
+            <h3 id="project-modal-title"></h3>
+            <p id="project-modal-description"></p>
+            <div class="modal-gallery" id="project-modal-gallery">
+            </div>
+            <div id="project-modal-testimonials">
+                <h4>Ulasan Proyek:</h4>
+                <p id="project-modal-testimonial-text"></p>
+                <p id="project-modal-testimonial-author"></p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QuickBite. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
